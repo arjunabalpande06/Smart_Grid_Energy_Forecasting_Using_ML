@@ -1,0 +1,14 @@
+# PBL Machine Learning Model Requirements
+# Local, portable environment dependencies
+
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+scikit-learn>=1.3.0
+joblib>=1.3.0
+openpyxl>=3.1.0
+xgboost>=2.0.0
+tensorflow>=2.15.0
+gradio>=4.0.0
+jupyter>=1.0.0
+ipykernel>=6.20.0
