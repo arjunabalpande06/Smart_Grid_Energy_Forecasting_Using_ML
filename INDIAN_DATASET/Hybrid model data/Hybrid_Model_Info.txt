@@ -1,0 +1,12 @@
+Model: Weighted Hybrid Ensemble
+
+Linear Regression Weight: 0.05
+SVR Weight: 0.15
+Random Forest Weight: 0.25
+XGBoost Weight: 0.30
+LSTM Weight: 0.25
+
+Target: National Hourly Demand
+Unit: MW
+Sequence Length: 24 hours
+Train/Test Split: 80/20 Chronological

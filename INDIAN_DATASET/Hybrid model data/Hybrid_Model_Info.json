@@ -1,0 +1,59 @@
+{
+    "Model": "Weighted Hybrid Ensemble",
+    "Weights": {
+        "Linear Regression": 0.05,
+        "SVR": 0.15,
+        "Random Forest": 0.25,
+        "XGBoost": 0.3,
+        "LSTM": 0.25
+    },
+    "Formula": "final_prediction = 0.05*LR + 0.15*SVR + 0.25*RF + 0.30*XGB + 0.25*LSTM",
+    "Target": "National Hourly Demand",
+    "Unit": "MW",
+    "LSTM_Sequence_Length_Hours": 24,
+    "Train_Test_Split": "80/20 Chronological",
+    "Performance": [
+        {
+            "Model": "Linear Regression",
+            "MAE (MW)": 17303.2,
+            "MSE (MW\u00b2)": 434907038.48,
+            "RMSE (MW)": 20854.42,
+            "R\u00b2": -0.1411
+        },
+        {
+            "Model": "SVR",
+            "MAE (MW)": 16883.06,
+            "MSE (MW\u00b2)": 418041023.27,
+            "RMSE (MW)": 20446.05,
+            "R\u00b2": -0.0968
+        },
+        {
+            "Model": "Random Forest",
+            "MAE (MW)": 16030.64,
+            "MSE (MW\u00b2)": 384669448.16,
+            "RMSE (MW)": 19612.99,
+            "R\u00b2": -0.0093
+        },
+        {
+            "Model": "XGBoost",
+            "MAE (MW)": 16304.42,
+            "MSE (MW\u00b2)": 389895255.84,
+            "RMSE (MW)": 19745.77,
+            "R\u00b2": -0.023
+        },
+        {
+            "Model": "LSTM",
+            "MAE (MW)": 4234.71,
+            "MSE (MW\u00b2)": 27989948.9,
+            "RMSE (MW)": 5290.55,
+            "R\u00b2": 0.9266
+        },
+        {
+            "Model": "Hybrid Ensemble",
+            "MAE (MW)": 12680.2,
+            "MSE (MW\u00b2)": 232022234.05,
+            "RMSE (MW)": 15232.28,
+            "R\u00b2": 0.3912
+        }
+    ]
+}
