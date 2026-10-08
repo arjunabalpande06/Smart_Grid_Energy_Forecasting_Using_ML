@@ -59,7 +59,7 @@ The repository is modularly organized into two self-contained dataset directorie
 PBL_Model/
 │
 ├── FRANCE_DATASET/
-│   ├── household_power_consumption.txt          # Raw dataset (~2.075M rows, semicolon-delimited)
+│   ├── household_power_consumption.csv          # Raw dataset (~2.075M rows, semicolon-delimited)
 │   │
 │   ├── Linear Regression.ipynb                  # Linear Regression training & evaluation (physical/temporal features)
 │   ├── LR_Gradio.ipynb                          # Linear Regression training & Gradio UI (lag features)
@@ -132,7 +132,7 @@ PBL_Model/
 ## 🇫🇷 Folder 1: FRANCE_DATASET (Household Power Consumption)
 
 ### France Overview & Raw Data
-- **File**: `FRANCE_DATASET/household_power_consumption.txt`
+- **File**: `FRANCE_DATASET/household_power_consumption.csv`
 - **Sample Rate**: 1 minute between December 2006 and November 2010 (~47 months).
 - **Size**: 2,075,259 rows, 9 attributes.
 - **Attributes**:
