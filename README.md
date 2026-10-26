@@ -10,13 +10,13 @@ A portable, cross-platform machine learning and deep learning project for foreca
 - [Project Overview](#-project-overview)
 - [Folder Structure](#-folder-structure)
 - [Dataset & Domain Comparison](#-dataset--domain-comparison)
-- [Folder 1: FRANCE_DATASET (Household Power Consumption)](#-folder-1-france_dataset-household-power-consumption)
-  - [Overview & Raw Data](#france-overview--raw-data)
-  - [Notebook Architecture](#france-notebook-architecture)
-  - [Feature Engineering Strategies](#france-feature-engineering-strategies)
-  - [Model Performance Benchmark](#france-model-performance-benchmark)
-  - [Gradio Interactive Interfaces](#france-gradio-interactive-interfaces)
-  - [Saved Artifacts & Outputs](#france-saved-artifacts--outputs)
+- [Folder 1: FOREIGN_DATASET (Household Power Consumption)](#-folder-1-foreign_dataset-household-power-consumption)
+  - [Overview & Raw Data](#foreign-overview--raw-data)
+  - [Notebook Architecture](#foreign-notebook-architecture)
+  - [Feature Engineering Strategies](#foreign-feature-engineering-strategies)
+  - [Model Performance Benchmark](#foreign-model-performance-benchmark)
+  - [Gradio Interactive Interfaces](#foreign-gradio-interactive-interfaces)
+  - [Saved Artifacts & Outputs](#foreign-saved-artifacts--outputs)
 - [Folder 2: INDIAN_DATASET (National Electricity Demand)](#-folder-2-indian_dataset-national-electricity-demand)
   - [Overview & Raw Data](#india-overview--raw-data)
   - [Notebook Architecture](#india-notebook-architecture)
@@ -40,8 +40,8 @@ A portable, cross-platform machine learning and deep learning project for foreca
 
 Accurate electrical load forecasting is critical for grid stability, peak-load management, energy trading, and household energy optimization. This project provides a comparative machine learning and deep learning study across two distinct temporal and operational domains:
 
-1. **Micro-Scale Household Level (`FRANCE_DATASET`)**:
-   - Predicts 1-minute global active power consumption (kW) for an individual household in Sceaux, France.
+1. **Micro-Scale Household Level (`FOREIGN_DATASET`)**:
+   - Predicts 1-minute global active power consumption (kW) for an individual household in Sceaux, France (Foreign dataset).
    - Leverages high-frequency lag features, temporal cycles, and rolling sequence windows.
 2. **Macro-Scale National Grid Level (`INDIAN_DATASET`)**:
    - Forecasts national hourly electricity demand (MW) across India.
@@ -58,7 +58,7 @@ The repository is modularly organized into two self-contained dataset directorie
 ```
 PBL_Model/
 │
-├── FRANCE_DATASET/
+├── FOREIGN_DATASET/
 │   ├── household_power_consumption.csv          # Raw dataset (~2.075M rows, semicolon-delimited)
 │   │
 │   ├── Linear Regression.ipynb                  # Linear Regression training & evaluation (physical/temporal features)
@@ -116,10 +116,10 @@ PBL_Model/
 
 ## ⚖️ Dataset & Domain Comparison
 
-| Dimension | `FRANCE_DATASET` | `INDIAN_DATASET` |
+| Dimension | `FOREIGN_DATASET` | `INDIAN_DATASET` |
 |---|---|---|
 | **Forecasting Scope** | Single Household (Micro-level) | National Electric Grid (Macro-level) |
-| **Location** | Sceaux (near Paris), France | All-India National Grid Monitors |
+| **Location** | Sceaux (near Paris), France (Foreign Household) | All-India National Grid Monitors |
 | **Sampling Resolution** | 1-minute intervals | 1-hour intervals |
 | **Target Variable** | `Global_active_power` (Kilowatts - kW) | `National Hourly Demand` (Megawatts - MW) |
 | **Primary Features** | Autoregressive lag features (1, 5, 15, 60, 1440 mins) + calendar timestamps | Calendar timestamps (`hour`, `day`, `day_of_week`, `month`, `year`, `day_of_year`) + sequence windows |
@@ -129,10 +129,10 @@ PBL_Model/
 
 ---
 
-## 🇫🇷 Folder 1: FRANCE_DATASET (Household Power Consumption)
+## 🌍 Folder 1: FOREIGN_DATASET (Household Power Consumption)
 
-### France Overview & Raw Data
-- **File**: `FRANCE_DATASET/household_power_consumption.csv`
+### Foreign Overview & Raw Data
+- **File**: `FOREIGN_DATASET/household_power_consumption.csv`
 - **Sample Rate**: 1 minute between December 2006 and November 2010 (~47 months).
 - **Size**: 2,075,259 rows, 9 attributes.
 - **Attributes**:
@@ -146,24 +146,24 @@ PBL_Model/
   - `Sub_metering_2`: Energy sub-metering No. 2 (laundry room: washing machine, dryer, light).
   - `Sub_metering_3`: Energy sub-metering No. 3 (electric water heater and air conditioner).
 
-### France Notebook Architecture
+### Foreign Notebook Architecture
 The folder provides two sets of notebooks to cleanly separate training experimentation from production UI deployment:
 
 1. **Standalone Training Notebooks**:
-   - [Linear Regression.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/Linear%20Regression.ipynb): Trains baseline OLS regression using physical electrical measurements (`Voltage`, `Global_reactive_power`, `Global_intensity`, sub-meterings).
-   - [LSTM.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/LSTM.ipynb): Sequence-based LSTM trained on 30-step sliding windows of active power.
-   - [RFR.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/RFR.ipynb): Random Forest Regressor trained on 30-step sliding sequence representations.
-   - [SVR.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/SVR.ipynb): Support Vector Regressor with RBF kernel trained on 30-step sequence representations.
-   - [XGBoost.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/XGBoost.ipynb): Extreme Gradient Boosting Regressor trained on 30-step sequence representations.
+   - [Linear Regression.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/Linear%20Regression.ipynb): Trains baseline OLS regression using physical electrical measurements (`Voltage`, `Global_reactive_power`, `Global_intensity`, sub-meterings).
+   - [LSTM.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/LSTM.ipynb): Sequence-based LSTM trained on 30-step sliding windows of active power.
+   - [RFR.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/RFR.ipynb): Random Forest Regressor trained on 30-step sliding sequence representations.
+   - [SVR.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/SVR.ipynb): Support Vector Regressor with RBF kernel trained on 30-step sequence representations.
+   - [XGBoost.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/XGBoost.ipynb): Extreme Gradient Boosting Regressor trained on 30-step sequence representations.
 
 2. **Gradio Deployment Notebooks**:
-   - [LR_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/LR_Gradio.ipynb)
-   - [LSTM_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/LSTM_Gradio.ipynb)
-   - [RFR_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/RFR_Gradio.ipynb)
-   - [SVR_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/SVR_Gradio.ipynb)
-   - [XGBoost_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/XGBoost_Gradio.ipynb)
+   - [LR_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/LR_Gradio.ipynb)
+   - [LSTM_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/LSTM_Gradio.ipynb)
+   - [RFR_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/RFR_Gradio.ipynb)
+   - [SVR_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/SVR_Gradio.ipynb)
+   - [XGBoost_Gradio.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/XGBoost_Gradio.ipynb)
 
-### France Feature Engineering Strategies
+### Foreign Feature Engineering Strategies
 1. **Autoregressive Lag Features** (used in Gradio models):
    - `Power_Lag_1`: Active power 1 minute prior.
    - `Power_Lag_5`: Active power 5 minutes prior.
@@ -175,7 +175,7 @@ The folder provides two sets of notebooks to cleanly separate training experimen
 3. **Sequential Windowing** (used in standalone sequence notebooks):
    - 30-minute historical windows (`time_steps = 30`) scaled via `MinMaxScaler(feature_range=(0, 1))`.
 
-### France Model Performance Benchmark
+### Foreign Model Performance Benchmark
 
 | Model | Evaluation Framework | MAE (kW) | RMSE (kW) | $R^2$ Score | Key Observations |
 |---|---|---|---|---|---|
@@ -189,9 +189,9 @@ The folder provides two sets of notebooks to cleanly separate training experimen
 | **LSTM** | 30-step Window | 0.2577 | 0.4783 | 0.8714 | Effective sequence learning |
 | **SVR** | 30-step Window | 0.2620 | 0.5781 | 0.8502 | Captures RBF non-linear boundaries |
 
-*(Note: In [Linear Regression.ipynb](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET/Linear%20Regression.ipynb), using direct concurrent physical features like `Global_intensity` yields an $R^2$ of 0.9985 due to direct electrical Ohm's law correlation $P \approx V \cdot I$).*
+*(Note: In [Linear Regression.ipynb](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET/Linear%20Regression.ipynb), using direct concurrent physical features like `Global_intensity` yields an $R^2$ of 0.9985 due to direct electrical Ohm's law correlation $P \approx V \cdot I$).*
 
-### France Gradio Interactive Interfaces
+### Foreign Gradio Interactive Interfaces
 - **Tabular Models (LR, RFR, SVR, XGBoost)**:
   - **Inputs**:
     - 5 numeric inputs: `power_lag_1`, `power_lag_5`, `power_lag_15`, `power_lag_60`, `power_lag_1440`.
@@ -201,20 +201,20 @@ The folder provides two sets of notebooks to cleanly separate training experimen
   - **Input**: Integer dataset index `index` ($\ge 60$).
   - **Output**: Formatted prediction showing actual historical sequence versus predicted active power.
 
-### France Saved Artifacts & Outputs
-- `FRANCE_DATASET/Linear_Regression_Output/`:
+### Foreign Saved Artifacts & Outputs
+- `FOREIGN_DATASET/Linear_Regression_Output/`:
   - `linear_regression_energy_model.pkl`: Serialized Linear Regression model.
-- `FRANCE_DATASET/LSTM_Output/`:
+- `FOREIGN_DATASET/LSTM_Output/`:
   - `linear_regression_energy_model.pkl`
   - `smart_grid_lstm_model.keras`: Saved Keras Sequential LSTM model.
   - `lstm_predictions.csv`: Model test predictions.
-- `FRANCE_DATASET/RFR_Outputs/`:
+- `FOREIGN_DATASET/RFR_Outputs/`:
   - `random_forest_model.pkl`: Saved Scikit-Learn `RandomForestRegressor`.
   - `random_forest_predictions.csv`: Test set predictions.
-- `FRANCE_DATASET/SVR_Output/`:
+- `FOREIGN_DATASET/SVR_Output/`:
   - `smart_grid_svr_model.pkl`: Saved Scikit-Learn `SVR`.
   - `svr_predictions.csv`: Test set predictions.
-- `FRANCE_DATASET/XGBoost_Output/`:
+- `FOREIGN_DATASET/XGBoost_Output/`:
   - `xgboost_model.pkl`: Saved XGBoost Regressor model.
   - `xgboost_predictions.csv`: Test set predictions.
 
@@ -304,7 +304,7 @@ All 5 notebooks in `INDIAN_DATASET` share an intuitive, unified interface:
 
 ### 5. LSTM (Long Short-Term Memory) Deep Neural Networks
 - Recurrent neural networks built using `tensorflow.keras.models.Sequential`:
-  - **France Dataset LSTM**: `LSTM(50)` + `Dropout(0.2)` + `Dense(25, relu)` + `Dense(1)` (or `LSTM(32)` + `Dropout(0.1)` + `Dense(16)` + `Dense(1)`).
+  - **Foreign Dataset LSTM**: `LSTM(50)` + `Dropout(0.2)` + `Dense(25, relu)` + `Dense(1)` (or `LSTM(32)` + `Dropout(0.1)` + `Dense(16)` + `Dense(1)`).
   - **India Dataset LSTM**: `LSTM(64, return_sequences=True)` + `Dropout(0.2)` + `LSTM(32)` + `Dropout(0.2)` + `Dense(16, relu)` + `Dense(1)`.
   - Loss function: Mean Squared Error (`mse`).
   - Optimizer: Adam.
@@ -376,7 +376,7 @@ ipykernel>=6.20.0
    code .
    ```
 2. Ensure the **Python** and **Jupyter** extensions are installed in VS Code.
-3. Open any notebook from [FRANCE_DATASET/](file:///d:/Documents%20(D)/PBL_Model/FRANCE_DATASET) or [INDIAN_DATASET/](file:///d:/Documents%20(D)/PBL_Model/INDIAN_DATASET).
+3. Open any notebook from [FOREIGN_DATASET/](file:///d:/Documents%20(D)/PBL_Model/FOREIGN_DATASET) or [INDIAN_DATASET/](file:///d:/Documents%20(D)/PBL_Model/INDIAN_DATASET).
 4. Click **Select Kernel** in the upper right corner of the notebook editor.
 5. Choose **Python Environments...** and select `.venv` (or your Python environment).
 6. Click **Run All** or execute cells individually.
@@ -408,7 +408,7 @@ ipykernel>=6.20.0
 Each Gradio notebook launches a local web server:
 
 1. Open any `*_Gradio.ipynb` notebook:
-   - **France Models**: `LR_Gradio.ipynb`, `LSTM_Gradio.ipynb`, `RFR_Gradio.ipynb`, `SVR_Gradio.ipynb`, `XGBoost_Gradio.ipynb`
+   - **Foreign Models**: `LR_Gradio.ipynb`, `LSTM_Gradio.ipynb`, `RFR_Gradio.ipynb`, `SVR_Gradio.ipynb`, `XGBoost_Gradio.ipynb`
    - **India Models**: `LR_Gradio.ipynb`, `LSTM_Gradio.ipynb`, `RFR_Gradio.ipynb`, `SVR_Gradio.ipynb`, `XGBoost_Gradio.ipynb`
 2. Run the notebook through the final cell (`demo.launch()` or `interface.launch()`).
 3. Open the displayed local URL in your web browser:
@@ -427,5 +427,5 @@ Each Gradio notebook launches a local web server:
 | `ModuleNotFoundError: No module named 'openpyxl'` | Excel engine missing | Run `pip install openpyxl` in your active virtual environment. |
 | `InconsistentVersionWarning` when unpickling `.pkl` | Model serialized with earlier `scikit-learn` version | This is a non-fatal warning. If desired, re-run the training notebook to overwrite the `.pkl` using your current version. |
 | Gradio port already in use (`Address already in use: 7860`) | An earlier notebook kernel is still hosting Gradio | Restart the previous notebook's kernel or specify a custom port: `demo.launch(server_port=7861)`. |
-| Out of memory during LSTM training on France dataset | Full ~2.07M rows processed at once | Reduce the subset sample size (e.g., first 50,000–100,000 rows) or decrease `batch_size` (e.g., from 256 to 64 or 32). |
+| Out of memory during LSTM training on Foreign dataset | Full ~2.07M rows processed at once | Reduce the subset sample size (e.g., first 50,000–100,000 rows) or decrease `batch_size` (e.g., from 256 to 64 or 32). |
 | Relative path errors when loading data files | Jupyter working directory differs from script root | All notebooks in this project include resilient `Path` resolution that checks both the current directory and the parent directory automatically. |
