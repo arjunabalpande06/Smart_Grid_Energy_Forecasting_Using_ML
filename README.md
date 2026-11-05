@@ -1,4 +1,4 @@
-# Electricity Demand & Load Forecasting (PBL Machine Learning Project)
+# Smart Grid Energy Consumption Forecasting Using Machine Learning and Deep Learning
 
 A portable, cross-platform machine learning and deep learning project for forecasting electrical energy demand across household (micro-scale) and national grid (macro-scale) domains.
 
@@ -9,6 +9,7 @@ A portable, cross-platform machine learning and deep learning project for foreca
 
 ## 📋 Table of Contents
 - [Project Overview](#-project-overview)
+- [Scientific Project Poster](#-scientific-project-poster)
 - [Source Files & Repository Inventory](#-source-files--repository-inventory)
   - [Directory Tree](#directory-tree)
   - [Detailed File Breakdown](#detailed-file-breakdown)
@@ -64,6 +65,46 @@ Every model in both domains is equipped with an interactive, browser-based **Gra
 
 ---
 
+## 📜 Scientific Project Poster
+
+A comprehensive, IEEE-style research conference poster has been designed and compiled for this project in **ISO A3 Landscape format ($4961 \times 3508\text{ px}$ at $300\text{ DPI}$)**. It provides a standalone, publication-quality visual summary of the complete project workflow, mathematical foundations, experimental benchmarks, and smart-grid applications.
+
+<div align="center">
+  <a href="PROJECT_POSTER.png">
+    <img src="PROJECT_POSTER.png" alt="Smart Grid Energy Consumption Forecasting - Scientific Project Poster" width="100%" style="border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.18);" />
+  </a>
+  <p><em>Click on the poster image above to view or download the full-resolution 300 DPI master image.</em></p>
+</div>
+
+### Poster Specifications & Metadata
+
+| Attribute | Specification Details |
+|:---|:---|
+| **Project Title** | *Smart Grid Energy Consumption Forecasting Using Machine Learning and Deep Learning* |
+| **Faculty Mentorship** | Dr. Smita Singh |
+| **Project Authors** | Arjun Balpande, Om Gadbail, Tushar Bodele |
+| **Academic Department** | Department of Computer Science & Engineering, B.Tech Project |
+| **Paper Standard & Size** | ISO A3 Landscape ($420 \times 297\text{ mm}$), $4961 \times 3508\text{ px}$ at $300\text{ DPI}$ |
+| **Design Standard** | IEEE Academic Research Poster & Scientific Infographic Theme |
+| **Primary Palette** | Deep Navy (`#062E63`), Electric Blue (`#2563EB`), Emerald Green (`#059669`), White (`#FFFFFF`) |
+
+### Key Poster Sections Overview
+1. **Introduction**: Explains smart-grid telemetry, automated sensing, and the critical need for dynamic generation-demand balancing.
+2. **Problem Statement**: Details non-linear residential appliance stochasticity and multi-gigawatt grid temporal inertia.
+3. **Research Objectives**: Predictive modeling across micro- and macro-scales, benchmarking traditional ML against deep recurrent models.
+4. **Key Contributions**: Comprehensive multi-scale empirical comparison, feature engineering, and scale-tailored model selection.
+5. **Dataset Description**: High-frequency 1-minute household power dataset (2.075M records) and All-India hourly national grid telemetry (NLDC).
+6. **Methodology & Model Architectures**: 9-stage scientific pipeline (Data Collection → Cleaning → EDA → Feature Engineering → Partitioning → Training → Inference → Metric Evaluation → Comparison) alongside mathematical specifications for LR, SVR, RF, XGBoost, and 2-Layer LSTM.
+7. **Mathematical Performance Metrics**: Exact LaTeX formulations for MAE, MSE, RMSE, and $R^2$.
+8. **Results & Visual Insights**: Time-series waveform plots validating actual vs. predicted curves for micro-scale household load and national grid dispatch.
+9. **Key Scientific Findings**: Proves scale-dependent superiority—gradient boosting trees dominate micro-scale spikes ($R^2 = 0.9419$), while deep LSTM dominates aggregated grid transmission inertia ($R^2 = 0.9690$).
+10. **Key Experimental Results & Benchmarks**: Metric tables and clustered 3-metric bar charts comparing all evaluated models.
+11. **Smart Grid Industrial Applications**: 8 concrete operations including voltage regulation, AMI telemetry, sub-metering, dynamic tariff demand response, unit commitment, and renewable ramp smoothing.
+12. **Conclusion**: Scale-tailored machine learning and deep learning provide actionable, cost-effective computational tools for modern power utilities.
+13. **Future Scope & Roadmap**: Real-time edge inference, meteorological and irradiance fusion, CNN-LSTM hybrids, and direct alignment with UN Sustainable Development Goals (SDG 7, 11, and 13).
+
+---
+
 ## 📁 Source Files & Repository Inventory
 
 ### Directory Tree
@@ -72,6 +113,7 @@ Every model in both domains is equipped with an interactive, browser-based **Gra
 PBL_Model/
 ├── .gitattributes                                       # Git Large File Storage (LFS) tracking configuration
 ├── .gitignore                                           # Excluded build artifacts, environments, and caches
+├── PROJECT_POSTER.png                                   # High-resolution IEEE scientific project poster (A3 @ 300 DPI)
 ├── requirements.txt                                     # Unified Python dependencies
 ├── README.md                                            # Comprehensive project documentation
 │
@@ -134,6 +176,7 @@ PBL_Model/
 #### 1. Root Configuration & Documentation Files
 - [`.gitattributes`](file:///d:/Documents%20(D)/PBL_Model/.gitattributes): Configures Git Large File Storage (LFS) filters for model weights (`*.keras`, `*.pkl`) and tabular datasets (`*.csv`, `*.txt`), preventing repository bloat and corruption during versioning.
 - [`.gitignore`](file:///d:/Documents%20(D)/PBL_Model/.gitignore): Standard rules omitting Python virtual environments (`.venv/`), bytecode caches (`__pycache__/`), and Jupyter checkpoints (`.ipynb_checkpoints/`).
+- [`PROJECT_POSTER.png`](file:///d:/Documents%20(D)/PBL_Model/PROJECT_POSTER.png): High-resolution ($4961 \times 3508\text{ px}$, $300\text{ DPI}$ ISO A3 Landscape) IEEE-style scientific project poster summarizing the complete project architecture, datasets, mathematical formulations, benchmarks, and industrial applications.
 - [`requirements.txt`](file:///d:/Documents%20(D)/PBL_Model/requirements.txt): Specification of required runtime packages with minimum version constraints.
 - [`README.md`](file:///d:/Documents%20(D)/PBL_Model/README.md): Primary architecture guide, source file index, technology inventory, and execution manual.
 
@@ -592,8 +635,14 @@ print(f"Predicted Active Power: {predicted_kw:.4f} kW")
 
 ## 📄 License & Attribution
 
-- **Project**: Problem-Based Learning (PBL) Machine Learning Model Project
+- **Project**: *Smart Grid Energy Consumption Forecasting Using Machine Learning and Deep Learning*
+- **Academic Mentorship**: Dr. Smita Singh
+- **Authors & Contributors**:
+  - Arjun Balpande
+  - Om Gadbail
+  - Tushar Bodele
+- **Academic Institution**: Department of Computer Science & Engineering, B.Tech Final Year Problem-Based Learning (PBL) Project
 - **Datasets**:
-  - Individual Household Electric Power Consumption: Public domain / UCI Machine Learning Repository.
-  - National Load Dispatch Center (India): Public national grid records and Open Meteorological datasets.
+  - *Individual Household Electric Power Consumption*: Public domain / UCI Machine Learning Repository.
+  - *National Load Despatch Centre (NLDC, India)*: Public national grid historical load records and Open Meteorological datasets.
 - **Code & Pipelines**: Developed for portable, reproducible machine learning research and interactive deployment.
